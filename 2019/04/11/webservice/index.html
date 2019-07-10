@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>webservie | Forever</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="WebService相关错误WebService 意外的元素 (uri:””, local:”arg0”)。所需元素为解决办法在WebService接口及其实现类的方法名处，加上@WebParam(name = “”,targetNamespace=””), 修改后，再次调用，接口可正常调用了。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="webservie">
+<meta property="og:url" content="http://yoursite.com/2019/04/11/webservice/index.html">
+<meta property="og:site_name" content="Forever">
+<meta property="og:description" content="WebService相关错误WebService 意外的元素 (uri:””, local:”arg0”)。所需元素为解决办法在WebService接口及其实现类的方法名处，加上@WebParam(name = “”,targetNamespace=””), 修改后，再次调用，接口可正常调用了。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-07-10T14:38:04.009Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="webservie">
+<meta name="twitter:description" content="WebService相关错误WebService 意外的元素 (uri:””, local:”arg0”)。所需元素为解决办法在WebService接口及其实现类的方法名处，加上@WebParam(name = “”,targetNamespace=””), 修改后，再次调用，接口可正常调用了。">
+  
+    <link rel="alternate" href="/atom.xml" title="Forever" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Forever</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-webservice" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/04/11/webservice/" class="article-date">
+  <time datetime="2019-04-11T08:01:09.000Z" itemprop="datePublished">2019-04-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      webservie
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="WebService相关错误"><a href="#WebService相关错误" class="headerlink" title="WebService相关错误"></a>WebService相关错误</h3><h4 id="WebService-意外的元素-uri-””-local-”arg0”-。所需元素为"><a href="#WebService-意外的元素-uri-””-local-”arg0”-。所需元素为" class="headerlink" title="WebService 意外的元素 (uri:””, local:”arg0”)。所需元素为"></a>WebService 意外的元素 (uri:””, local:”arg0”)。所需元素为</h4><h5 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h5><p>在WebService接口及其实现类的方法名处，加上@WebParam(name = “”,targetNamespace=””), 修改后，再次调用，接口可正常调用了。</p>
+<a id="more"></a>
+
+<h5 id="具体修改如下"><a href="#具体修改如下" class="headerlink" title="具体修改如下"></a>具体修改如下</h5><ol>
+<li><p>接口</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">test</span><span class="params">( @WebParam(name = <span class="string">"req"</span>,targetNamespace=<span class="string">"http://xxx/"</span>)</span> String req)</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>实现类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">test</span><span class="params">(@WebParam(name = <span class="string">"req"</span>,targetNamespace=<span class="string">"http://xxx/"</span>)</span> String req)</span>&#123;</span><br><span class="line">        </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h3 id="查看WebService请求以及返回报文"><a href="#查看WebService请求以及返回报文" class="headerlink" title="查看WebService请求以及返回报文"></a>查看WebService请求以及返回报文</h3><h4 id="解决思路"><a href="#解决思路" class="headerlink" title="解决思路"></a>解决思路</h4><p>Webservice 本质上还是http的请求，所以通过抓包即可拿到对应的请求以及返回的报文。其中抓包工具使用 Charles，免费使用一个月。</p>
+<h4 id="具体办法"><a href="#具体办法" class="headerlink" title="具体办法"></a>具体办法</h4><ol>
+<li>下载 Charles，设置代理的端口号并启用代理： proxy -&gt; proxy settings -&gt; enable transparent http proxying 选中</li>
+<li>在调用 webservice前设置下代理，如下</li>
+</ol>
+<pre><code class="java">System.setProperty(<span class="string">"http.proxyHost"</span>, <span class="string">"192.168.1.1"</span>);
+System.setProperty(<span class="string">"http.proxyPort"</span>, <span class="string">"8888"</span>);</code></pre>
+<ol start="3">
+<li>或者：<a href="https://www.cnblogs.com/sphere/p/7751556.html" title="引用链接" target="_blank" rel="noopener">参考博客</a> 。</li>
+</ol>
+<h3 id="Server-did-not-recognize-the-value-of-HTTP-Header-SOAPAction"><a href="#Server-did-not-recognize-the-value-of-HTTP-Header-SOAPAction" class="headerlink" title="Server did not recognize the value of HTTP Header SOAPAction"></a>Server did not recognize the value of HTTP Header SOAPAction</h3><h4 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h4><ol>
+<li>网上教程</li>
+<li>spring boot 官方教程</li>
+<li>结合两者使用的过程中出现的问题</li>
+</ol>
+<h4 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h4><p><a href="https://blog.csdn.net/perfecttech/article/details/85320480" title="引用链接" target="_blank" rel="noopener">参考博客</a> 。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/04/11/webservice/" data-id="cjxxdfivn000itp64jppj6u9p" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/07/10/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Hello World
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/03/22/crash/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">crash</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/algorithm-snake/">algorithm snake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/algorithm-sort-insert/">algorithm sort insert</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/algorithm-snake/" style="font-size: 10px;">algorithm snake</a> <a href="/tags/algorithm-sort-insert/" style="font-size: 10px;">algorithm sort insert</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/07/10/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/11/webservice/">webservie</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/22/crash/">crash</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/08/vpn/">如何搭建outline</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/02/sqlMode/">sql model</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 huyanchao<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

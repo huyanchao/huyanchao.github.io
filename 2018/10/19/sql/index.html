@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>sql | Forever</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="经常遇到的sql的问题 按照in中的顺序排序 union 与 union all的区别">
+<meta property="og:type" content="article">
+<meta property="og:title" content="sql">
+<meta property="og:url" content="http://yoursite.com/2018/10/19/sql/index.html">
+<meta property="og:site_name" content="Forever">
+<meta property="og:description" content="经常遇到的sql的问题 按照in中的顺序排序 union 与 union all的区别">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-07-10T14:38:04.008Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="sql">
+<meta name="twitter:description" content="经常遇到的sql的问题 按照in中的顺序排序 union 与 union all的区别">
+  
+    <link rel="alternate" href="/atom.xml" title="Forever" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Forever</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-sql" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/10/19/sql/" class="article-date">
+  <time datetime="2018-10-19T08:59:39.000Z" itemprop="datePublished">2018-10-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      sql
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="经常遇到的sql的问题"><a href="#经常遇到的sql的问题" class="headerlink" title="经常遇到的sql的问题"></a>经常遇到的sql的问题</h3><ol>
+<li>按照in中的顺序排序</li>
+<li>union 与 union all的区别<a id="more"></a>
+
+</li>
+</ol>
+<h4 id="按照in中的顺序排序"><a href="#按照in中的顺序排序" class="headerlink" title="按照in中的顺序排序"></a>按照in中的顺序排序</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">and id in </span><br><span class="line"><span class="tag">&lt;<span class="name">foreach</span> <span class="attr">collection</span>=<span class="string">"collection"</span> <span class="attr">item</span>=<span class="string">"id"</span> <span class="attr">index</span>=<span class="string">"index"</span></span></span><br><span class="line"><span class="tag">                     <span class="attr">open</span>=<span class="string">"("</span> <span class="attr">close</span>=<span class="string">")"</span> <span class="attr">separator</span>=<span class="string">","</span>&gt;</span></span><br><span class="line">#&#123;id&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">foreach</span>&gt;</span></span><br><span class="line">order by field(id,</span><br><span class="line"><span class="tag">&lt;<span class="name">foreach</span> <span class="attr">collection</span>=<span class="string">"collection"</span> <span class="attr">item</span>=<span class="string">"id"</span> <span class="attr">index</span>=<span class="string">"index"</span> <span class="attr">separator</span>=<span class="string">","</span>&gt;</span></span><br><span class="line">                #&#123;id&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">foreach</span>&gt;</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h4 id="union-与-union-all的区别"><a href="#union-与-union-all的区别" class="headerlink" title="union 与 union all的区别"></a>union 与 union all的区别</h4><ol>
+<li>union会自动压缩多个结果集合中的重复结果。</li>
+<li>union all则将所有的结果全部显示出来,不管是不是重复。</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/10/19/sql/" data-id="cjxxdfivi000ctp64xwtz2hwf" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/10/31/sort-insert/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          插入排序
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/10/18/activemqnotwork/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Active mq 队列消费者阻塞</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/algorithm-snake/">algorithm snake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/algorithm-sort-insert/">algorithm sort insert</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/algorithm-snake/" style="font-size: 10px;">algorithm snake</a> <a href="/tags/algorithm-sort-insert/" style="font-size: 10px;">algorithm sort insert</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/07/10/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/11/webservice/">webservie</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/22/crash/">crash</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/08/vpn/">如何搭建outline</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/02/sqlMode/">sql model</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 huyanchao<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

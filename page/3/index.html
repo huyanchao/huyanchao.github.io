@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>Forever</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="huyanchao personal page">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Forever">
+<meta property="og:url" content="http://yoursite.com/page/3/index.html">
+<meta property="og:site_name" content="Forever">
+<meta property="og:description" content="huyanchao personal page">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Forever">
+<meta name="twitter:description" content="huyanchao personal page">
+  
+    <link rel="alternate" href="/atom.xml" title="Forever" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Forever</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-activemq" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/08/29/activemq/" class="article-date">
+  <time datetime="2018-08-29T14:47:30.000Z" itemprop="datePublished">2018-08-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/29/activemq/">activemq</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="active-mq-安装与启动"><a href="#active-mq-安装与启动" class="headerlink" title="active mq 安装与启动"></a>active mq 安装与启动</h3><ol>
+<li>安装：官网下载对应的压缩包”apache-activemq-5.15.5-bin.tar.gz”，解压即可</li>
+<li>启动：进入bin目录 nohup ./activemq start 后台启动运行</li>
+</ol>
+<h3 id="active-mq-配置"><a href="#active-mq-配置" class="headerlink" title="active mq 配置"></a>active mq 配置</h3><p>修改链接broke的用户名和密码： 修改conf/credentials.properties中的activemq.username 以及 activemq.password</p>
+<h3 id="active-mq-控制台登录"><a href="#active-mq-控制台登录" class="headerlink" title="active mq 控制台登录"></a>active mq 控制台登录</h3><p>控制台的默认的登录地址为：localhost:8161<br>进入该地址之后，点击 Manage ActiveMQ broker 输入用户名和密码 即可：默认的用户名和密码为 admin/admin.<br>其中用户名和密码保存到 conf/jetty-ream.properties中。</p>
+<p>另外，需要在conf/jetty.xml 文件中设置 authenticate 设置为true</p>
+        
+          <p class="article-more-link">
+            <a href="/2018/08/29/activemq/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/08/29/activemq/" data-id="cjxxdfiuo0000tp64woolfovo" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-mq" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/08/29/mq/" class="article-date">
+  <time datetime="2018-08-29T13:54:01.000Z" itemprop="datePublished">2018-08-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/29/mq/">消息队列</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://blog.csdn.net/kingcat666/article/details/78660535/" title="引用链接" target="_blank" rel="noopener">转载自https://blog.csdn.net/kingcat666/article/details/78660535/</a> 。</p>
+<h4 id="消息队列"><a href="#消息队列" class="headerlink" title="消息队列"></a>消息队列</h4><p>消息即是信息的载体。为了让消息发送者和消息接收者都能够明白消息所承载的信息（消息发送者需要知道如何构造消息；消息接收者需要知道如何解析消息），它们就需要按照一种统一的格式描述消息，这种统一的格式称之为消息协议。所以，有效的消息一定具有某一种格式；而没有格式的消息是没有意义的。</p>
+<p>而消息从发送者到接收者的方式也有两种。一种我们可以称为即时消息通讯，也就是说消息从一端发出后（消息发送者）立即就可以达到另一端（消息接收者），这种方式的具体实现就是我们已经介绍过的RPC（当然单纯的http通讯也满足这个定义）；另一种方式称为延迟消息通讯，即消息从某一端发出后，首先进入一个容器进行临时存储，当达到某种条件后，再由这个容器发送给另一端。 这个容器的一种具体实现就是消息队列。</p>
+        
+          <p class="article-more-link">
+            <a href="/2018/08/29/mq/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/08/29/mq/" data-id="cjxxdfiv00005tp64ugq35lp5" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-mysql" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/08/20/mysql/" class="article-date">
+  <time datetime="2018-08-20T13:43:01.000Z" itemprop="datePublished">2018-08-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/20/mysql/">mysql</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Mysql允许远程连接"><a href="#Mysql允许远程连接" class="headerlink" title="Mysql允许远程连接"></a>Mysql允许远程连接</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> msyql;</span><br><span class="line"><span class="keyword">update</span> <span class="keyword">user</span> <span class="keyword">set</span> host = <span class="string">'%'</span> <span class="keyword">where</span> <span class="keyword">user</span> = <span class="string">'root'</span>;</span><br><span class="line"><span class="keyword">grant</span> <span class="keyword">all</span> <span class="keyword">privileges</span> <span class="keyword">on</span> *.* <span class="keyword">to</span> <span class="string">'root'</span>@<span class="string">'%'</span> <span class="keyword">identified</span> <span class="keyword">by</span> <span class="string">'123456'</span> <span class="keyword">with</span> <span class="keyword">grant</span> <span class="keyword">option</span>;</span><br><span class="line"><span class="keyword">flush</span> <span class="keyword">privileges</span>;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/08/20/mysql/" data-id="cjxxdfiv30007tp64yk86ey3w" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-redis" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/08/14/redis/" class="article-date">
+  <time datetime="2018-08-14T13:18:56.000Z" itemprop="datePublished">2018-08-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/14/redis/">Redis 添加密码</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Spring boot项目中设置密码，服务器为linxu。</p>
+<h3 id="服务器操作步骤"><a href="#服务器操作步骤" class="headerlink" title="服务器操作步骤"></a>服务器操作步骤</h3><p>redis在linux 启动命令为 redis-server redis.conf，关闭命令采用 kill -9 PID 的形式关闭。</p>
+<ol>
+<li>修改redis.conf, 添加 requirepass xxx(your password) </li>
+<li>如果采用后台方式启动， 修改redis.conf，将【GENERAL】部分的 “daemonize no” 改为 “daemonize yes”</li>
+</ol>
+        
+          <p class="article-more-link">
+            <a href="/2018/08/14/redis/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/08/14/redis/" data-id="cjxxdfiv20006tp648vcsxek8" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-vue-js" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/29/vue-js/" class="article-date">
+  <time datetime="2018-05-29T01:00:26.000Z" itemprop="datePublished">2018-05-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/29/vue-js/">Vue 绑定样式不起作用</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>v-bind:style 的对象语法十分直观——看着非常像 CSS，但其实是一个 JavaScript 对象。CSS 属性名可以用驼峰式 (camelCase) 或短横线分隔 (kebab-case，记得用单引号括起来) 来命名：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">v-bind:style</span>=<span class="string">"&#123; blogStyle &#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">blockStyle &#123;</span><br><span class="line">	display: <span class="string">'block;'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>以上的代码不起作用，原因是 js 代码中最后多了一个 ‘;’。</p>
+<h3 id="正确方式"><a href="#正确方式" class="headerlink" title="正确方式"></a>正确方式</h3><p>正确代码</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">blockStyle &#123;</span><br><span class="line">	display: <span class="string">'block'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/05/29/vue-js/" data-id="cjxxdfivm000htp64c5ij7bk5" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/2/">&laquo; 上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/">下一页 &raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/algorithm-snake/">algorithm snake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/algorithm-sort-insert/">algorithm sort insert</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/algorithm-snake/" style="font-size: 10px;">algorithm snake</a> <a href="/tags/algorithm-sort-insert/" style="font-size: 10px;">algorithm sort insert</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/07/10/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/11/webservice/">webservie</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/22/crash/">crash</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/08/vpn/">如何搭建outline</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/02/sqlMode/">sql model</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 huyanchao<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

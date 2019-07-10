@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>crash | Forever</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="记录遇到的系统宕机或者类似宕机之类的错误以及对应的解决办法。  HTTP method names must be tokens">
+<meta property="og:type" content="article">
+<meta property="og:title" content="crash">
+<meta property="og:url" content="http://yoursite.com/2019/03/22/crash/index.html">
+<meta property="og:site_name" content="Forever">
+<meta property="og:description" content="记录遇到的系统宕机或者类似宕机之类的错误以及对应的解决办法。  HTTP method names must be tokens">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-07-10T14:38:04.007Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="crash">
+<meta name="twitter:description" content="记录遇到的系统宕机或者类似宕机之类的错误以及对应的解决办法。  HTTP method names must be tokens">
+  
+    <link rel="alternate" href="/atom.xml" title="Forever" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Forever</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-crash" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/22/crash/" class="article-date">
+  <time datetime="2019-03-22T05:40:01.000Z" itemprop="datePublished">2019-03-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      crash
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>记录遇到的系统宕机或者类似宕机之类的错误以及对应的解决办法。</p>
+<ol>
+<li>HTTP method names must be tokens</li>
+</ol>
+<a id="more"></a>
+
+<h3 id="1-HTTP-method-names-must-be-tokens"><a href="#1-HTTP-method-names-must-be-tokens" class="headerlink" title="1. HTTP method names must be tokens"></a>1. HTTP method names must be tokens</h3><h4 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h4><p>突然的一天收到这样的一条信息，“服务端对应的各个客户端（小程序，IOS，Android，PC端）用户都无法正常操作了”。然后获得服务器的日志，抛出的异常信息如下，‘Invalid character found in method name. HTTP method names must be tokens’。</p>
+<h4 id="分析过程"><a href="#分析过程" class="headerlink" title="分析过程"></a>分析过程</h4><ol>
+<li>使用restClient 测试随便一条请求，分别使用 “http:// + ip”, “https:// + ip” , “https:// + 域名” ， “https:// + ip” 的方式。</li>
+<li>发现 “http:// + ip” 的方式可以正常请求，其他则不行，其中 “https:// + ip” 的时候，谷歌浏览器中的 restClient 提示信息“No response. Is the certificate valid? Click here to check.”，点击之后打开的新的页面提示：“隐私设置错误”</li>
+<li>从网上百度获得一条信息：“本来是http的请求 错误使用https方式请求 就会报该错”</li>
+</ol>
+<p>综合分析，ssl 的证书过期了</p>
+<h4 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h4><p>到https证书签发机构CA续签证书。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/03/22/crash/" data-id="cjxxdfiuy0003tp64ejxxh377" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/04/11/webservice/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          webservie
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/03/08/vpn/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">如何搭建outline</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/algorithm-snake/">algorithm snake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/algorithm-sort-insert/">algorithm sort insert</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/algorithm-snake/" style="font-size: 10px;">algorithm snake</a> <a href="/tags/algorithm-sort-insert/" style="font-size: 10px;">algorithm sort insert</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">七月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/07/10/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/11/webservice/">webservie</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/22/crash/">crash</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/08/vpn/">如何搭建outline</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/02/sqlMode/">sql model</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 huyanchao<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
