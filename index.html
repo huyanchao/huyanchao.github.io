@@ -65,6 +65,53 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-socket" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/10/06/socket/" class="article-date">
+  <time datetime="2019-10-06T12:28:32.000Z" itemprop="datePublished">2019-10-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/06/socket/">SocketIO</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="WebSocket-和-SocketIO的区别"><a href="#WebSocket-和-SocketIO的区别" class="headerlink" title="WebSocket 和 SocketIO的区别"></a>WebSocket 和 SocketIO的区别</h3><ol>
+<li>Websocket是全双工的基于TCP层的通信协议，浏览器及网站服务器提供处理流式推送消息的方式。它不同于HTTP协议，但仍依赖HTTP的Upgrade头部进行协议的转换</li>
+<li>Socket.IO是js的库，用于web的开发应用中实现客户端与服务端建立全双工通信。SocketIO主要是基于websocket协议进行的上层封装（包括连接的管理、心跳与维活及提供room的广播机制与异步io等特性），同时在websocket不可用时，提供长轮询作为备选方式获取数据。<br>这里要注意就是Socket.IO不是Websocket的实现，Socker.IO有自己的协议说明，因此和websocket的server不兼容，Socker.IO握手及数据传输都有自定义的metadata与认证逻辑，比如头部的sid，作者在刚使用时上层接了负载均衡，没有考虑session保持，导致Socket.IO握手时鉴权一直不通过。</li>
+<li>STOMP over Websocket： 通过Websocket建立STOMP连接，也就是说在Websocket连接的基础上再建立 STOMP连接。</li>
+</ol>
+        
+          <p class="article-more-link">
+            <a href="/2019/10/06/socket/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/10/06/socket/" data-id="ck1ezwe7l00065qdmrxmxyvk9" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/socketio/">socketio</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-webservice" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/04/11/webservice/" class="article-date">
@@ -96,7 +143,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/04/11/webservice/" data-id="cjxxdjzu7000fun64yebu5bte" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/04/11/webservice/" data-id="ck1ezwe8c000j5qdmbolkd1rz" class="article-share-link">Share</a>
       
       
     </footer>
@@ -140,7 +187,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/22/crash/" data-id="cjxxdjzts0004un648hufruqm" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/22/crash/" data-id="ck1ezwe7100035qdmt4kqo248" class="article-share-link">Share</a>
       
       
     </footer>
@@ -187,7 +234,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/08/vpn/" data-id="cjxxdjzu6000eun64ympddvyr" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/08/vpn/" data-id="ck1ezwe8d000k5qdm977e5tds" class="article-share-link">Share</a>
       
       
     </footer>
@@ -234,49 +281,9 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/12/02/sqlMode/" data-id="cjxxdjzu5000dun64r9payztk" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/12/02/sqlMode/" data-id="ck1ezwe89000f5qdmylocnj2l" class="article-share-link">Share</a>
       
       
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-sort-insert" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/10/31/sort-insert/" class="article-date">
-  <time datetime="2018-10-31T03:01:43.000Z" itemprop="datePublished">2018-10-31</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/10/31/sort-insert/">插入排序</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="算法-插入排序"><a href="#算法-插入排序" class="headerlink" title="算法 插入排序"></a>算法 插入排序</h4><h4 id="伪代码"><a href="#伪代码" class="headerlink" title="伪代码"></a>伪代码</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">for</span> j == <span class="number">2</span> to A.length</span><br><span class="line">	key = A[j]</span><br><span class="line">	<span class="comment">// insert A[j] into the sorted sequence A[1...j-1].</span></span><br><span class="line">	i = j - <span class="number">1</span></span><br><span class="line">	<span class="keyword">while</span> i &gt; <span class="number">0</span> and A[i] &gt; key</span><br><span class="line">		A[i+<span class="number">1</span>] = A[i]</span><br><span class="line">		i = i - <span class="number">1</span></span><br><span class="line">	A[i+<span class="number">1</span>] = key</span><br></pre></td></tr></table></figure>
-
-<h4 id="java-代码"><a href="#java-代码" class="headerlink" title="java 代码"></a>java 代码</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 插入排序</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> array 数组</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">insertSort</span><span class="params">(<span class="keyword">int</span>[] array)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">2</span>; j &lt; array.length ; j++) &#123;</span><br><span class="line">            <span class="keyword">int</span> key = array[j];</span><br><span class="line">            <span class="keyword">int</span> i = j - <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">while</span> (i &gt; <span class="number">0</span> &amp;&amp; array[i] &gt; key) &#123;</span><br><span class="line">                array[i+<span class="number">1</span>] = array[i];</span><br><span class="line">                i--;</span><br><span class="line">            &#125;</span><br><span class="line">            array[i+<span class="number">1</span>] = key;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/31/sort-insert/" data-id="cjxxdjztt0005un64se2iuqej" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/algorithm-sort-insert/">algorithm sort insert</a></li></ul>
-
     </footer>
   </div>
   
@@ -288,7 +295,7 @@
 
   <nav id="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">下一页 &raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">下一页 &raquo;</a>
   </nav>
 
 </section>
@@ -302,7 +309,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/algorithm-snake/">algorithm snake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/algorithm-sort-insert/">algorithm sort insert</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/algorithm-snake/">algorithm snake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/algorithm-sort-insert/">algorithm sort insert</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/socketio/">socketio</a></li></ul>
     </div>
   </div>
 
@@ -312,7 +319,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/algorithm-snake/" style="font-size: 10px;">algorithm snake</a> <a href="/tags/algorithm-sort-insert/" style="font-size: 10px;">algorithm sort insert</a>
+      <a href="/tags/algorithm-snake/" style="font-size: 10px;">algorithm snake</a> <a href="/tags/algorithm-sort-insert/" style="font-size: 10px;">algorithm sort insert</a> <a href="/tags/socketio/" style="font-size: 10px;">socketio</a>
     </div>
   </div>
 
@@ -321,7 +328,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a></li></ul>
     </div>
   </div>
 
@@ -332,6 +339,10 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2019/10/06/socket/">SocketIO</a>
+          </li>
         
           <li>
             <a href="/2019/04/11/webservice/">webservie</a>
@@ -347,10 +358,6 @@
         
           <li>
             <a href="/2018/12/02/sqlMode/">sql model</a>
-          </li>
-        
-          <li>
-            <a href="/2018/10/31/sort-insert/">插入排序</a>
           </li>
         
       </ul>
