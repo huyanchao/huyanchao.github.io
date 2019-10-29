@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>gitlab-runner | Forever</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="使用 gitlab-runner 配置自动部署 安装 gitlab-runnermac1brew services install gitlab-runner">
+<meta name="keywords" content="gitlab-runner">
+<meta property="og:type" content="article">
+<meta property="og:title" content="gitlab-runner">
+<meta property="og:url" content="http://yoursite.com/2019/10/29/gitlab-runner/index.html">
+<meta property="og:site_name" content="Forever">
+<meta property="og:description" content="使用 gitlab-runner 配置自动部署 安装 gitlab-runnermac1brew services install gitlab-runner">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-10-29T13:50:54.443Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="gitlab-runner">
+<meta name="twitter:description" content="使用 gitlab-runner 配置自动部署 安装 gitlab-runnermac1brew services install gitlab-runner">
+  
+    <link rel="alternate" href="/atom.xml" title="Forever" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Forever</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-gitlab-runner" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/10/29/gitlab-runner/" class="article-date">
+  <time datetime="2019-10-29T13:27:15.000Z" itemprop="datePublished">2019-10-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      gitlab-runner
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>使用 gitlab-runner 配置自动部署</p>
+<h3 id="安装-gitlab-runner"><a href="#安装-gitlab-runner" class="headerlink" title="安装 gitlab-runner"></a>安装 gitlab-runner</h3><h4 id="mac"><a href="#mac" class="headerlink" title="mac"></a>mac</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew services install gitlab-runner</span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+<h4 id="linux"><a href="#linux" class="headerlink" title="linux"></a>linux</h4><ol>
+<li><p>安装 docker </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -sSL https://get.docker.com/ | sh</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>下载镜像</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull gitlab/gitlab-runner:latest</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>运行容器</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --name gitlab-runner --restart always \</span><br><span class="line">  -v /var/run/docker.sock:/var/run/docker.sock \</span><br><span class="line">  -v /srv/gitlab-runner/config:/etc/gitlab-runner \</span><br><span class="line">  gitlab/gitlab-runner:latest</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h3 id="注册"><a href="#注册" class="headerlink" title="注册"></a>注册</h3><p>文档地址： <a href="https://docs.gitlab.com/runner/register/" target="_blank" rel="noopener">https://docs.gitlab.com/runner/register/</a></p>
+<h3 id="注册之后修改："><a href="#注册之后修改：" class="headerlink" title="注册之后修改："></a>注册之后修改：</h3><p>在 Project-&gt; Settings -&gt; CI/CD 页面中 RUNNER 展开部分， 修改当前激活的 runner,</p>
+<ol>
+<li>Run untagged jobs 勾选</li>
+<li>Lock to current projects 去掉勾选</li>
+</ol>
+<h3 id="添加-gitlab-ci-yml"><a href="#添加-gitlab-ci-yml" class="headerlink" title="添加 .gitlab-ci.yml"></a>添加 .gitlab-ci.yml</h3><ol>
+<li><p>spring boot 工程</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">stages:</span></span><br><span class="line"><span class="bullet">  -</span> <span class="string">build</span></span><br><span class="line"><span class="bullet">  -</span> <span class="string">deploy</span></span><br><span class="line"></span><br><span class="line"><span class="attr">build_job:</span></span><br><span class="line"><span class="attr">  stage:</span> <span class="string">build</span></span><br><span class="line"><span class="attr">  only:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">test</span></span><br><span class="line"><span class="attr">  script:</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">mvn</span> <span class="string">clean</span> <span class="string">install</span> <span class="bullet">-DskipTests</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">mv</span> <span class="string">web/target/mtx.jar</span> <span class="string">/opt/build/pc/build.jar</span></span><br><span class="line"><span class="attr">deploy_job:</span></span><br><span class="line"><span class="attr">  stage:</span> <span class="string">deploy</span></span><br><span class="line"><span class="attr">  only:</span> </span><br><span class="line"><span class="bullet">      -</span> <span class="string">test</span></span><br><span class="line"><span class="attr">  script:</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">cd</span> <span class="string">/opt/build/pc/</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">./server.sh</span> <span class="string">stop</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">mv</span> <span class="string">build.jar</span> <span class="string">mtx.jar</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">sleep</span> <span class="number">3</span><span class="string">s</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">./server.sh</span> <span class="string">start</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>node vue 工程</p>
+</li>
+</ol>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">stages:</span></span><br><span class="line"><span class="bullet">  -</span> <span class="string">build</span></span><br><span class="line"><span class="bullet">  -</span> <span class="string">deploy</span></span><br><span class="line">  </span><br><span class="line"><span class="attr">cache:</span></span><br><span class="line"><span class="attr">  key:</span> <span class="string">$&#123;CI_BUILD_REF_NAME&#125;</span></span><br><span class="line"><span class="attr">  paths:</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">node_modules/</span></span><br><span class="line"></span><br><span class="line"><span class="attr">build_job:</span></span><br><span class="line"><span class="attr">  stage:</span> <span class="string">build</span></span><br><span class="line"><span class="attr">  only:</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">master</span></span><br><span class="line"><span class="attr">  script:</span></span><br><span class="line">  </span><br><span class="line"><span class="bullet">      -</span> <span class="string">sed</span>   <span class="string">'/VUE_APP_API/d'</span> <span class="string">.env</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">sed</span> <span class="bullet">-i</span> <span class="string">'$a VUE_APP_API= XXX'</span> <span class="string">.env</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">sed</span>   <span class="string">'/VUE_APP_API/d'</span> <span class="string">.env.development</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">sed</span> <span class="bullet">-i</span> <span class="string">'$a VUE_APP_API=XXX'</span> <span class="string">.env.development</span></span><br><span class="line">      </span><br><span class="line"><span class="bullet">      -</span> <span class="string">npm</span> <span class="string">install</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">npm</span> <span class="string">run</span> <span class="string">build</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">rm</span> <span class="bullet">-rf</span> <span class="string">/opt/build/pc-front/*</span></span><br><span class="line"><span class="bullet">      -</span> <span class="string">cp</span> <span class="bullet">-r</span> <span class="string">dist/*</span> <span class="string">/opt/build/pc-front/</span></span><br><span class="line">    </span><br><span class="line"><span class="attr">deploy_job:</span></span><br><span class="line"><span class="attr">  stage:</span> <span class="string">deploy</span></span><br><span class="line"><span class="attr">  only:</span> </span><br><span class="line"><span class="bullet">      -</span> <span class="string">master</span></span><br><span class="line"><span class="attr">  script:</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">rm</span> <span class="bullet">-rf</span> <span class="string">/usr/local/nginx/html/*</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">mv</span> <span class="string">/opt/build/pc-front/*</span> <span class="string">/usr/local/nginx/html/</span></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/10/29/gitlab-runner/" data-id="ck2bxaddj000h7gdmjour4827" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gitlab-runner/">gitlab-runner</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/10/29/linux-node/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          linux 安装 node
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/10/06/socket/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">SocketIO</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/active-mq/">active mq</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ajax/">ajax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/algorithm-snake/">algorithm snake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/algorithm-sort-insert/">algorithm sort insert</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/crash/">crash</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitlab-runner/">gitlab-runner</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jfinal/">jfinal</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux-java-start-stop/">linux java start stop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux-node/">linux node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mq/">mq</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/">redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/socketio/">socketio</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sql/">sql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sql-mode/">sql mode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vpn/">vpn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webservice/">webservice</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/active-mq/" style="font-size: 20px;">active mq</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/algorithm-snake/" style="font-size: 10px;">algorithm snake</a> <a href="/tags/algorithm-sort-insert/" style="font-size: 10px;">algorithm sort insert</a> <a href="/tags/crash/" style="font-size: 10px;">crash</a> <a href="/tags/gitlab-runner/" style="font-size: 10px;">gitlab-runner</a> <a href="/tags/jfinal/" style="font-size: 10px;">jfinal</a> <a href="/tags/linux-java-start-stop/" style="font-size: 10px;">linux java start stop</a> <a href="/tags/linux-node/" style="font-size: 10px;">linux node</a> <a href="/tags/mq/" style="font-size: 10px;">mq</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/socketio/" style="font-size: 10px;">socketio</a> <a href="/tags/sql/" style="font-size: 10px;">sql</a> <a href="/tags/sql-mode/" style="font-size: 10px;">sql mode</a> <a href="/tags/vpn/" style="font-size: 10px;">vpn</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/webservice/" style="font-size: 10px;">webservice</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/10/29/linux-java-start/">linux-java-start</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/29/linux-node/">linux 安装 node</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/29/gitlab-runner/">gitlab-runner</a>
+          </li>
+        
+          <li>
+            <a href="/2019/10/06/socket/">SocketIO</a>
+          </li>
+        
+          <li>
+            <a href="/2019/04/11/webservice/">webservie</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 huyanchao<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
