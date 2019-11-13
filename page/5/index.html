@@ -5,12 +5,12 @@
   
 
   
-  <title>归档: 2018/10 | Forever</title>
+  <title>Forever</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="huyanchao personal page">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Forever">
-<meta property="og:url" content="http://yoursite.com/archives/2018/10/index.html">
+<meta property="og:url" content="http://yoursite.com/page/5/index.html">
 <meta property="og:site_name" content="Forever">
 <meta property="og:description" content="huyanchao personal page">
 <meta property="og:locale" content="zh-CN">
@@ -65,114 +65,60 @@
       <div class="outer">
         <section id="main">
   
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/10/31/sort-insert/" class="archive-article-date">
-  <time datetime="2018-10-31T03:01:43.000Z" itemprop="datePublished">10月 31</time>
+    <article id="post-ajax" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/05/23/ajax/" class="article-date">
+  <time datetime="2018-05-23T05:33:09.000Z" itemprop="datePublished">2018-05-23</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/10/31/sort-insert/">插入排序</a>
+      <a class="article-title" href="/2018/05/23/ajax/">Ajax 缓存问题</a>
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/10/19/sql/" class="archive-article-date">
-  <time datetime="2018-10-19T08:59:39.000Z" itemprop="datePublished">10月 19</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/10/19/sql/">sql</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/10/18/activemqnotwork/" class="archive-article-date">
-  <time datetime="2018-10-18T02:29:56.000Z" itemprop="datePublished">10月 18</time>
-</a>
+        <p>Ajax中的GET请求会存在缓存的问题，而对于获取经常需要变更的数据的GET请求来说，会带来一些安全性的问题。这个缓存的问题即使在清空浏览器缓存之后可能仍然存在，有时会造成一些无法重现bug的假象。</p>
+<h3 id="什么是Ajax缓存"><a href="#什么是Ajax缓存" class="headerlink" title="什么是Ajax缓存"></a>什么是Ajax缓存</h3><p>Ajax在发送的数据成功后，会把请求的URL和返回的响应结果保存在缓存内，当下一次调用Ajax发送相同的请求时，它会直接从缓存中把数据取出来，这是为了提高页面的响应速度和用户体验。当前这要求两次请求URL完全相同，包括参数。这个时候，浏览器就不会与服务器交互。</p>
+<ol>
+<li>GET访问 浏览器认为是等幂的。相同的url(包括url中的参数)，就会缓存</li>
+<li>POST请求 浏览器认为必定会有改变，所以不会缓存</li>
+</ol>
+        
+          <p class="article-more-link">
+            <a href="/2018/05/23/ajax/#more">Read More</a>
+          </p>
+        
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/10/18/activemqnotwork/">Active mq 队列消费者阻塞</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/10/14/snake/" class="archive-article-date">
-  <time datetime="2018-10-14T00:38:39.000Z" itemprop="datePublished">10月 14</time>
-</a>
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/05/23/ajax/" data-id="ck2wyazdb0001ax64a4kbsnrk" class="article-share-link">Share</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/10/14/snake/">算法笔试题蛇形矩阵</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/10/03/jfinal/" class="archive-article-date">
-  <time datetime="2018-10-03T05:44:50.000Z" itemprop="datePublished">10月 3</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/10/03/jfinal/">jfinal 工程重构为spring boot 项目</a>
-    </h1>
-  
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ajax/">ajax</a></li></ul>
 
-    </header>
+    </footer>
   </div>
+  
 </article>
-  
-  
-    </div></section>
+
+
   
 
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/page/4/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span>
+  </nav>
 
 </section>
         

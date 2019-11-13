@@ -65,6 +65,57 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-ftp" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/11/13/ftp/" class="article-date">
+  <time datetime="2019-11-13T07:05:49.000Z" itemprop="datePublished">2019-11-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/13/ftp/">ftp</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="FTP-linux-安装"><a href="#FTP-linux-安装" class="headerlink" title="FTP linux 安装"></a>FTP linux 安装</h3><ol>
+<li><p>下载镜像</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull fauria/vsftpd</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>运行容器 并且开放对应的端口</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -p 21:21 -p 20:20 -p 21100-21110:21100-21110  -v /opt/ftp:/home/vsftpd -e FTP_USER=User -e FTP_PASS=Password -e PASV_ADDRESS=REALIP -e PASV_MIN_PORT=21100 -e PASV_MAX_PORT=21110 --name vsftpd --restart=always fauria/vsftpd</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>User ftp登录用户， Password ftp登录密码， REALIP：linux 服务器的IP<br>运行容器之后会自动在 /opt/ftp 目录下自动创建 名称为 ftp登录用户的目录</p>
+<ol start="3">
+<li>nginx 配置静态资源目录 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">root user;</span><br><span class="line">...</span><br><span class="line">location /file/ &#123;</span><br><span class="line">	<span class="built_in">alias</span> /opt/file/User</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/11/13/ftp/" data-id="ck2wyazdf0003ax64s6ssbzj2" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ftp/">ftp</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-linux-egg" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/10/29/linux-egg/" class="article-date">
@@ -90,13 +141,13 @@
         <h3 id="linux-部署egg-遇到的问题"><a href="#linux-部署egg-遇到的问题" class="headerlink" title="linux 部署egg 遇到的问题"></a>linux 部署egg 遇到的问题</h3><ol>
 <li>将源码放到服务器之后， npm start 报错; 原因是执行脚本没有权限</li>
 </ol>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 脚本添加执行权限</span><br><span class="line">cd ./node-modules/.bin/</span><br><span class="line">chomd u+x *</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 脚本添加执行权限</span></span><br><span class="line">cd ./node-modules/.bin/</span><br><span class="line">chomd u+x *</span><br></pre></td></tr></table></figure>
 
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/29/linux-egg/" data-id="ck2bxhpmd00099sdmclhrr0ny" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/10/29/linux-egg/" data-id="ck2wyazdq000eax642sj2bbkz" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux-egg/">linux egg</a></li></ul>
@@ -140,7 +191,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/29/linux-java-start/" data-id="ck2bxhpmg000b9sdmjm3sp5pj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/10/29/linux-java-start/" data-id="ck2wyazdn000cax641f8mpuo9" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux-java-start-stop/">linux java start stop</a></li></ul>
@@ -191,7 +242,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/29/linux-node/" data-id="ck2bxhpmi000d9sdmvalptl8r" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/10/29/linux-node/" data-id="ck2wyazdr000gax64lc5mnbzt" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux-node/">linux node</a></li></ul>
@@ -235,57 +286,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/29/gitlab-runner/" data-id="ck2bxhpma00059sdmfctlu0hf" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/10/29/gitlab-runner/" data-id="ck2wyazdg0004ax64kgnnidnn" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gitlab-runner/">gitlab-runner</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-socket" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/10/06/socket/" class="article-date">
-  <time datetime="2019-10-06T12:28:32.000Z" itemprop="datePublished">2019-10-06</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/06/socket/">SocketIO</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="WebSocket-和-SocketIO的区别"><a href="#WebSocket-和-SocketIO的区别" class="headerlink" title="WebSocket 和 SocketIO的区别"></a>WebSocket 和 SocketIO的区别</h3><ol>
-<li>Websocket是全双工的基于TCP层的通信协议，浏览器及网站服务器提供处理流式推送消息的方式。它不同于HTTP协议，但仍依赖HTTP的Upgrade头部进行协议的转换</li>
-<li>Socket.IO是js的库，用于web的开发应用中实现客户端与服务端建立全双工通信。SocketIO主要是基于websocket协议进行的上层封装（包括连接的管理、心跳与维活及提供room的广播机制与异步io等特性），同时在websocket不可用时，提供长轮询作为备选方式获取数据。<br>这里要注意就是Socket.IO不是Websocket的实现，Socker.IO有自己的协议说明，因此和websocket的server不兼容，Socker.IO握手及数据传输都有自定义的metadata与认证逻辑，比如头部的sid，作者在刚使用时上层接了负载均衡，没有考虑session保持，导致Socket.IO握手时鉴权一直不通过。</li>
-<li>STOMP over Websocket： 通过Websocket建立STOMP连接，也就是说在Websocket连接的基础上再建立 STOMP连接。</li>
-</ol>
-        
-          <p class="article-more-link">
-            <a href="/2019/10/06/socket/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/06/socket/" data-id="ck2bxhpmz000p9sdmsffk72yn" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/socketio/">socketio</a></li></ul>
 
     </footer>
   </div>
@@ -298,7 +302,7 @@
 
   <nav id="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">下一页 &raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">下一页 &raquo;</a>
   </nav>
 
 </section>
@@ -312,7 +316,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/active-mq/">active mq</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ajax/">ajax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/algorithm-snake/">algorithm snake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/algorithm-sort-insert/">algorithm sort insert</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/crash/">crash</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitlab-runner/">gitlab-runner</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jfinal/">jfinal</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux-egg/">linux egg</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux-java-start-stop/">linux java start stop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux-node/">linux node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mq/">mq</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/">redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/socketio/">socketio</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sql/">sql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sql-mode/">sql mode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vpn/">vpn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webservice/">webservice</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/active-mq/">active mq</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ajax/">ajax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/algorithm-snake/">algorithm snake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/algorithm-sort-insert/">algorithm sort insert</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/crash/">crash</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ftp/">ftp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitlab-runner/">gitlab-runner</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jfinal/">jfinal</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux-egg/">linux egg</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux-java-start-stop/">linux java start stop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux-node/">linux node</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mq/">mq</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/">redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/socketio/">socketio</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sql/">sql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sql-mode/">sql mode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vpn/">vpn</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vue/">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/webservice/">webservice</a></li></ul>
     </div>
   </div>
 
@@ -322,7 +326,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/active-mq/" style="font-size: 20px;">active mq</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/algorithm-snake/" style="font-size: 10px;">algorithm snake</a> <a href="/tags/algorithm-sort-insert/" style="font-size: 10px;">algorithm sort insert</a> <a href="/tags/crash/" style="font-size: 10px;">crash</a> <a href="/tags/gitlab-runner/" style="font-size: 10px;">gitlab-runner</a> <a href="/tags/jfinal/" style="font-size: 10px;">jfinal</a> <a href="/tags/linux-egg/" style="font-size: 10px;">linux egg</a> <a href="/tags/linux-java-start-stop/" style="font-size: 10px;">linux java start stop</a> <a href="/tags/linux-node/" style="font-size: 10px;">linux node</a> <a href="/tags/mq/" style="font-size: 10px;">mq</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/socketio/" style="font-size: 10px;">socketio</a> <a href="/tags/sql/" style="font-size: 10px;">sql</a> <a href="/tags/sql-mode/" style="font-size: 10px;">sql mode</a> <a href="/tags/vpn/" style="font-size: 10px;">vpn</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/webservice/" style="font-size: 10px;">webservice</a>
+      <a href="/tags/active-mq/" style="font-size: 20px;">active mq</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/algorithm-snake/" style="font-size: 10px;">algorithm snake</a> <a href="/tags/algorithm-sort-insert/" style="font-size: 10px;">algorithm sort insert</a> <a href="/tags/crash/" style="font-size: 10px;">crash</a> <a href="/tags/ftp/" style="font-size: 10px;">ftp</a> <a href="/tags/gitlab-runner/" style="font-size: 10px;">gitlab-runner</a> <a href="/tags/jfinal/" style="font-size: 10px;">jfinal</a> <a href="/tags/linux-egg/" style="font-size: 10px;">linux egg</a> <a href="/tags/linux-java-start-stop/" style="font-size: 10px;">linux java start stop</a> <a href="/tags/linux-node/" style="font-size: 10px;">linux node</a> <a href="/tags/mq/" style="font-size: 10px;">mq</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/redis/" style="font-size: 10px;">redis</a> <a href="/tags/socketio/" style="font-size: 10px;">socketio</a> <a href="/tags/sql/" style="font-size: 10px;">sql</a> <a href="/tags/sql-mode/" style="font-size: 10px;">sql mode</a> <a href="/tags/vpn/" style="font-size: 10px;">vpn</a> <a href="/tags/vue/" style="font-size: 10px;">vue</a> <a href="/tags/webservice/" style="font-size: 10px;">webservice</a>
     </div>
   </div>
 
@@ -331,7 +335,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/10/">十月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a></li></ul>
     </div>
   </div>
 
@@ -342,6 +346,10 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2019/11/13/ftp/">ftp</a>
+          </li>
         
           <li>
             <a href="/2019/10/29/linux-egg/">linux-egg</a>
@@ -357,10 +365,6 @@
         
           <li>
             <a href="/2019/10/29/gitlab-runner/">gitlab-runner</a>
-          </li>
-        
-          <li>
-            <a href="/2019/10/06/socket/">SocketIO</a>
           </li>
         
       </ul>
